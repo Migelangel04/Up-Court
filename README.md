@@ -1,2 +1,3 @@
 # Up-Court
-This application is a Full Stack Mobile application that helps basketball fans and bettors make better informed betting choices. Wether it be player versus player or player versus team, this application will give you well informed information using the ChatGPT API. This application will use React Native and Django as the primary front and backend.
+This application is a Full Stack Mobile application that helps basketball fans gain knowledge on how certain players preform depending on team and player match-ups. Wether it be player versus player or player versus team, this application will give you well informed information using the ChatGPT API. This application will use React Native and Django as the primary front and backend.
+This application does NOT give you information on betting or how to spend your money. What you do with this information is up to you.
