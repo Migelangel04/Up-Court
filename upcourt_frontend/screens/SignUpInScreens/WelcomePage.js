@@ -12,9 +12,15 @@ function WelcomePage({}) {
                 colors={[GLOBAL_STYLES.colors.blue700, GLOBAL_STYLES.colors.grey300]}
                 style={styles.background}
             />
-            <Text style={styles.title}>
-                Hello World
-            </Text>
+            <View>
+                
+            </View>
+            <View>
+
+            </View>
+            <View>
+
+            </View>
         </View>
     )
 }
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 48,
         textAlign: "center",
-        color: GLOBAL_STYLES.colors.white,
+        color: "#000000",
         fontFamily: "AfacadFlux-Bold"
     }
 })
