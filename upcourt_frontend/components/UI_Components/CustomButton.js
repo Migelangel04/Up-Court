@@ -1,15 +1,17 @@
 import { Text, Pressable, StyleSheet, View } from "react-native";
 
+import Ionicons from "@expo//vector-icons/Ionicons";
+
 
 function CustomButton({
-    title,
+    title = "",
     onPress,
     disabled = false,
     style,
     textStyle,
     isIcon = false,
-    icon,
-    ...props
+    icon = "",
+    iconColor = "#fff"
 }){
     return (
         <Pressable
@@ -22,9 +24,23 @@ function CustomButton({
                 disabled && styles.disabled
             ]}
         >
-            <View>
-
-            </View>
+            {
+                isIcon ?  
+                <View style={styles.content}>
+                    <Ionicons 
+                        name={icon}
+                        size={20}
+                        color={iconColor}
+                    />
+                </View> 
+                :
+                <View style={styles.content}>
+                    <Text style={textStyle}>
+                        {title}
+                    </Text>
+                </View>
+            }
+            
         </Pressable>
     )
 }
@@ -33,7 +49,7 @@ const styles = StyleSheet.create({
     button: {
         padding: 10,
         backgroundColor: '#2196F3',
-        borderRadius: 5,
+        borderRadius: 12,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
@@ -43,8 +59,13 @@ const styles = StyleSheet.create({
         transform: [{ scale: 0.98 }]
     },
     disabled: {
-        
-    }
+        backgroundColor: "#cccccc"
+    },
+    content: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
 })
 
 export default CustomButton;
