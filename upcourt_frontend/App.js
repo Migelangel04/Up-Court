@@ -5,7 +5,9 @@ import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
+import { GLOBAL_STYLES } from "./constants/styles";
 import WelcomePage from "./screens/SignUpInScreens/WelcomePage";
+import SignInScreen from "./screens/SignUpInScreens/SignInScreen/SignInScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +38,16 @@ export default function App() {
             component={WelcomePage}
             options={{
               headerShown: false
+            }}
+          />
+          <Stack.Screen
+            name = "Sign In Screen"
+            component={SignInScreen}
+            options={{
+              headerTitle: "",
+					    headerBackTitleVisible: false,
+					    headerTransparent: true,
+              headerTintColor: GLOBAL_STYLES.colors.orange300
             }}
           />
         </Stack.Navigator>

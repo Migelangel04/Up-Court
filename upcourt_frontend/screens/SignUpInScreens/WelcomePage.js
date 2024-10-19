@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 import { GLOBAL_STYLES } from "../../constants/styles";
 import CustomButton from "../../components/UI_Components/CustomButton.js";
 
 function WelcomePage({}) {
+    const navigation = useNavigation();
 
     return (
         <View style={styles.page}>
@@ -33,7 +35,7 @@ function WelcomePage({}) {
                     />
                     <CustomButton
                          title="Sign In"
-                         onPress={() => console.log("Sign In Page")}
+                         onPress={() => navigation.navigate("Sign In Screen")}
                          style={styles.button}
                          textStyle={styles.buttonText} 
                     />
