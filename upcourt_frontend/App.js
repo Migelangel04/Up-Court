@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { GLOBAL_STYLES } from "./constants/styles";
 import WelcomePage from "./screens/SignUpInScreens/WelcomePage";
 import SignInScreen from "./screens/SignUpInScreens/SignInScreen/SignInScreen";
+import SignUpScreen from "./screens/SignUpInScreens/SignUpScreen/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,16 @@ export default function App() {
           <Stack.Screen
             name = "Sign In Screen"
             component={SignInScreen}
+            options={{
+              headerTitle: "",
+					    headerBackTitleVisible: false,
+					    headerTransparent: true,
+              headerTintColor: GLOBAL_STYLES.colors.orange300
+            }}
+          />
+          <Stack.Screen
+            name = "Sign Up Screen"
+            component={SignUpScreen}
             options={{
               headerTitle: "",
 					    headerBackTitleVisible: false,

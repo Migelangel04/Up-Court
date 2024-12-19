@@ -6,7 +6,9 @@ export const GLOBAL_STYLES = {
         blue700: "#1E3A8A",
         orange300: "#FFA500",
         grey300: "#F0F0F0",
+        grey100: "#CCC",
         teal700: "#008080",
-        white: "#FFFFFF"
+        white: "#FFFFFF",
+        error300: "#FF6961"
     }
 }

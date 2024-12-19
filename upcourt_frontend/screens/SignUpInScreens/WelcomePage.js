@@ -29,7 +29,7 @@ function WelcomePage({}) {
                 <View style={styles.buttonContainer}>
                     <CustomButton
                          title="Sign Up"
-                         onPress={() => console.log("Sign Up Page")}
+                         onPress={() => navigation.navigate("Sign Up Screen")}
                          style={styles.button}
                          textStyle={styles.buttonText} 
                     />
