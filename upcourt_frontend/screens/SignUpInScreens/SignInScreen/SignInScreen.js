@@ -15,14 +15,14 @@ import BasketballLoadingIcon from "../../../components/UI_Components/BasketballL
 */
 
 function SignInScreen({}) {     
-    const [accountName, setAccountName] = useState("") // Could be Email or Username
+    const [accountEmail, setAccountEmail] = useState("") // Email Identifier
     const [accountPassword, setAccountPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [accountNameError, setAccountNameError] = useState(false)
     const [accountPasswordError, setAccountPasswordError] = useState(false) 
 
-    function modifyAccountName(name){
-        setAccountName(name)
+    function modifyAccountEmail(name){
+        setAccountEmail(name)
     }
 
     function modifyAccountPassword(password){
@@ -38,6 +38,7 @@ function SignInScreen({}) {
                 Redux to store the Auth Token. We have to give our data from
                 "data". 
             */
+           console.log(data)
 
         } catch (error) {
             Alert.alert(
@@ -55,8 +56,8 @@ function SignInScreen({}) {
     }
     
     function signInVerficaton(){
-        if (accountName.length === 0 || accountPassword.length === 0){
-            accountName.length === 0 && setAccountNameError(true)
+        if (accountEmail.length === 0 || accountPassword.length === 0){
+            accountEmail.length === 0 && setAccountNameError(true)
             accountPassword.length === 0 && setAccountPasswordError(true)
             Alert.alert(
                 "Invalid Inputs", 
@@ -70,8 +71,8 @@ function SignInScreen({}) {
         }
         else {
             fetchUserInformation({
-                accountName: accountName,
-                accountPassword: accountPassword
+                email: accountEmail,
+                password: accountPassword
             })
         }
     }
@@ -104,12 +105,12 @@ function SignInScreen({}) {
                     <Text style={[styles.inputHeader, accountNameError && {
                         color: GLOBAL_STYLES.colors.error300
                     }]}>
-                        Username or Email
+                        Email
                     </Text>
                     <CustomTextInput
-                        value={accountName}
-                        onChangeText={modifyAccountName}
-                        placeholder={"Username or Email..."}
+                        value={accountEmail}
+                        onChangeText={modifyAccountEmail}
+                        placeholder={"Email..."}
                         isPassword={false}
                         containerStyle={{
                             borderWidth: 2,
