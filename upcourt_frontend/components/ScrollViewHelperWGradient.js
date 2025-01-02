@@ -1,32 +1,51 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { KeyboardAvoidingView, ScrollView, StyleSheet } from "react-native";
+import { 
+  KeyboardAvoidingView, 
+  ScrollView, 
+  Platform, 
+  SafeAreaView,
+  StyleSheet
+} from "react-native";
 
 function ScrollViewHelperWGradient({ children, gradientColors }) {
-    return (
-        <KeyboardAvoidingView
-            style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
-            behavior="padding"
-            keyboardVerticalOffset={100}
-        >
-            <LinearGradient
-                colors={gradientColors}
-                style={styles.background}
-            />
-            <ScrollView style={{ flex: 1 }}>
-                {children}
-            </ScrollView>
-        </KeyboardAvoidingView>
-    );
+  
+  return (
+    <LinearGradient
+        colors={gradientColors}
+        style={styles.gradient}
+    >
+        <SafeAreaView style={styles.container} >
+            <KeyboardAvoidingView
+            style={styles.keyboardView}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            >
+                <ScrollView
+                    contentContainerStyle={styles.scrollContent}
+                    keyboardShouldPersistTaps="handled"
+                >
+                    {children}
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </SafeAreaView>
+    </LinearGradient>
+  );
 }
 
 const styles = StyleSheet.create({
-    background: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        height: "100%",
-    },
-})
+  container: {
+    flex: 1,
+  },
+  gradient: {
+    flex: 1,
+  },
+  keyboardView: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  scrollContent: {
+    flexGrow: 1,
+  }
+});
 
 export default ScrollViewHelperWGradient;
