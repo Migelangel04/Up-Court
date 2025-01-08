@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Alert, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import { GLOBAL_STYLES } from "../../../constants/styles";
 import CustomTextInput from "../../../components/UI_Components/CustomTextInput";
@@ -19,7 +20,8 @@ function SignInScreen({}) {
     const [accountPassword, setAccountPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [accountNameError, setAccountNameError] = useState(false)
-    const [accountPasswordError, setAccountPasswordError] = useState(false) 
+    const [accountPasswordError, setAccountPasswordError] = useState(false)
+    const navigation = useNavigation() 
 
     function modifyAccountEmail(name){
         setAccountEmail(name)
@@ -38,8 +40,8 @@ function SignInScreen({}) {
                 Redux to store the Auth Token. We have to give our data from
                 "data". 
             */
-           console.log(data)
-
+            console.log(data)
+            navigation.navigate("Welcome Page")
         } catch (error) {
             Alert.alert(
                 "Invalid Inputs", 
