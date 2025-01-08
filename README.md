@@ -4,6 +4,8 @@ This application does NOT give you information on betting or how to spend your m
 
 ## SignOn Pages
 This is the progress that has been done on the UI and functionilty of the project. Further functionality and navigation is needed but it gives a clear representation of what is to come.
+
+
 <img src="presentationImages/WelcomePage.JPG" alt="Welcome Page" width="250" height="250">
 <img src="presentationImages/SignInPage.JPG" alt="Sign In Page" width="250" height="250">
 <img src="presentationImages/SignUpPage.JPG" alt="Sign Up Page" width="250" height="250">
