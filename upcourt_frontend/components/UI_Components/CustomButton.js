@@ -1,6 +1,7 @@
 import { Text, Pressable, StyleSheet, View } from "react-native";
 
 import Ionicons from "@expo//vector-icons/Ionicons";
+import { GLOBAL_STYLES } from "../../constants/styles";
 
 
 function CustomButton({
@@ -48,7 +49,7 @@ function CustomButton({
 const styles = StyleSheet.create({
     button: {
         padding: 10,
-        backgroundColor: '#2196F3',
+        backgroundColor: GLOBAL_STYLES.colors.orange300,
         borderRadius: 12,
         alignItems: 'center',
         justifyContent: 'center',
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
         transform: [{ scale: 0.98 }]
     },
     disabled: {
-        backgroundColor: "#cccccc"
+        backgroundColor: GLOBAL_STYLES.colors.grey100
     },
     content: {
         flexDirection: 'row',
