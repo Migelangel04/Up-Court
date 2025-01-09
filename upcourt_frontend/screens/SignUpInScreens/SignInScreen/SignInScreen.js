@@ -126,6 +126,7 @@ function SignInScreen({}) {
                                 setAccountNameError(false)
                             }
                         }}
+                        maxLength={100}
                     />
                 </View>
                 <View>
@@ -149,6 +150,7 @@ function SignInScreen({}) {
                                     setAccountPasswordError(false)
                                 }
                             }}
+                            maxLength={100}
                         />
                         <Pressable 
                             onPress={() => console.log("Email Verfication Page")}

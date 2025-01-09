@@ -7,6 +7,13 @@ import * as SplashScreen from "expo-splash-screen";
 import SignOnStack from "./navigation/SignOnStack";
 import MainTab from './navigation/MainTab';
 
+/* 
+  Current Task(s):
+  - Set up navigation from sign in page to the other "Forgot Password Screens".
+  Currently Implementing screen one (EnterEmailScreen). Need to finish styles and nav from 
+  that page.
+*/
+
 export default function App() {
  
   const [loaded, error] = useFonts({

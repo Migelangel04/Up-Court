@@ -142,9 +142,12 @@ function SignUpScreen() {
                         }}
                         handleError={() => {
                             if (informationError.firstName) {
-                                modifyUserInformationError("firstName", false)
+                                if (informationError.firstName) {
+                                    modifyUserInformationError("firstName", false)
+                                }
                             }
                         }}
+                        maxLength={26}
                     />
                 </View>
                 <View>
@@ -163,8 +166,11 @@ function SignUpScreen() {
                             borderColor: informationError.lastName ? GLOBAL_STYLES.colors.error300 : GLOBAL_STYLES.colors.white
                         }}
                         handleError={() => {
-                            modifyUserInformationError("lastName", false)
+                            if (informationError.lastName) {
+                                modifyUserInformationError("lastName", false)
+                            }
                         }}
+                        maxLength={26}
                     />
                 </View>
                 <View>
@@ -183,8 +189,11 @@ function SignUpScreen() {
                             borderColor: informationError.email ? GLOBAL_STYLES.colors.error300 : GLOBAL_STYLES.colors.white
                         }}
                         handleError={() => {
-                            modifyUserInformationError("email", false)
+                            if (informationError.email) {
+                                modifyUserInformationError("email", false)
+                            }
                         }}
+                        maxLength={100}
                     />
                 </View>
                 <View>
@@ -204,9 +213,23 @@ function SignUpScreen() {
                                 borderColor: informationError.password ? GLOBAL_STYLES.colors.error300 : GLOBAL_STYLES.colors.white
                             }}
                             handleError={() => {
-                                modifyUserInformationError("password", false)
+                                if (informationError.password) {
+                                    modifyUserInformationError("password", false)
+                                }
                             }}
+                            maxLength={100}
                         />
+                    </View>
+                    <View>
+                        <Text style={styles.passwordConstraintsText}>
+                            • Minimum password length of 6.
+                        </Text>
+                        <Text style={styles.passwordConstraintsText}>
+                            • At least one special character.
+                        </Text>
+                        <Text style={styles.passwordConstraintsText}>
+                            • At least one number.
+                        </Text>
                     </View>
                 </View>
                 
@@ -246,11 +269,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: "white" 
     },
-    forgotPasswordText: {
-        fontSize: 16,
-        textDecorationLine: "underline",
+    passwordConstraintsText: {
+        fontSize: 14,
         color: GLOBAL_STYLES.colors.white,
-        fontFamily: "AfacadFlux-Regular"
+        fontFamily: "AfacadFlux-Regular"    
     },
     buttonContainer: {
         alignSelf: "center",

@@ -3,7 +3,7 @@ import { View, TextInput, StyleSheet } from 'react-native';
 import { GLOBAL_STYLES } from '../../constants/styles';
 
 function CustomTextInput({ 
-    value, onChangeText, placeholder = "", isPassword = false, containerStyle, textInputStyle, handleError }){
+    value, onChangeText, placeholder = "", isPassword = false, containerStyle, textInputStyle, handleError, maxLength }){
       return (
           <View style={[styles.inputContainer, containerStyle]}>
               <TextInput
@@ -16,6 +16,7 @@ function CustomTextInput({
                   autoCapitalize="none"
                   keyboardType={placeholder.includes("Email") ? 'email-address' : 'default'}
                   onFocus={handleError}
+                  maxLength={maxLength}
               />
           </View>
   );
