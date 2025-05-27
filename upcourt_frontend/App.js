@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar />
+      <StatusBar style="light"/>
       <NavigationContainer>
         {isAuth ? <MainTab /> : <SignOnStack />}
       </NavigationContainer>
