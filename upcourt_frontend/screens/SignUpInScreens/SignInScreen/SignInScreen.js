@@ -9,7 +9,7 @@ import CustomButton from "../../../components/UI_Components/CustomButton";
 import BasketballLoadingIcon from "../../../components/UI_Components/BasketballLoadingIcon";
 
 /*
-    Current Tasks:
+    TODO:
     - Figure out the Auth Token situation and implement it here.
     - Implement and set up "Forgot Password" screen navigations (dw about backend stuff for that rn).
     - Set navigation to app main page.
@@ -39,9 +39,12 @@ function SignInScreen({}) {
                 We will use Axios to fetch this information and 
                 Redux to store the Auth Token. We have to give our data from
                 "data". 
+                Will implement HTTP pathways for both types of responses:
+                - 201: represents good response and directed to Main Page
+                - 400: bad request, we alert the user to try again later.
             */
-            console.log(data)
-            navigation.navigate("Welcome Page")
+            console.log(data);
+            navigation.navigate("Welcome Page");
         } catch (error) {
             Alert.alert(
                 "Invalid Inputs", 

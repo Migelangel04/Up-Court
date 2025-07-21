@@ -23,7 +23,8 @@ function WelcomePage({}) {
                 <View>
                     <Text style={styles.description}>
                     Mobile application that helps basketball fans get real time player stats. 
-                    Wether it be player versus player or player versus team, this application will give you well informed information using the ChatGPT API.
+                    Wether it be player versus player or player versus team, this application will 
+                    give you well informed information using AI.
                     </Text>
                 </View>
                 <View style={styles.buttonContainer}>

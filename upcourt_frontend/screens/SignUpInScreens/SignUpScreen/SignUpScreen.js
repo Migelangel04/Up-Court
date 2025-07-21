@@ -10,10 +10,11 @@ import CustomButton from "../../../components/UI_Components/CustomButton";
 import BasketballLoadingIcon from "../../../components/UI_Components/BasketballLoadingIcon";
 
 /*
-    Current Tasks:
-    - Similar Auth Token from Sign Up Screen, figure it out and implement it here.
+    TODO:
+    - Similar Auth Token from Sign In Screen, figure it out and implement it here.
     - Set up the routing for this page.
-    - Finish up state handling (userInfo and Errors) and information routing **
+    - Finish up state handling (userInfo and Errors) and information routing
+    - Set up the helper messages for "First Name", "Last Name", and "Password"
 */
 
 function SignUpScreen() {
@@ -54,6 +55,12 @@ function SignUpScreen() {
                 We will use Axios to fetch this information and 
                 Redux to store the Auth Token. We have to give our data from
                 "data". 
+                - 201: represents good response and directed to Main Page
+                - 400: bad request, we alert the user to try again later.
+                - Make sure to use .trim() on the values
+
+                For right for the MVP and to start connecting dots, will send the user to the 
+                Main page after sign in.
             */
             console.log(userInformation)
             navigation.navigate("Welcome Page")
@@ -72,13 +79,13 @@ function SignUpScreen() {
         }
     }
 
-    function signUpVerfication() {
-        if (userInformation.firstName.length === 0 || userInformation.lastName.length === 0 ||
-            userInformation.email.length === 0 || userInformation.password.length === 0) {
+    async function signUpVerfication() {
+        if (userInformation.firstName.trim().length === 0 || userInformation.lastName.trim().length === 0 ||
+            userInformation.email.trim().length === 0 || userInformation.password.length === 0) {
                 
-            userInformation.firstName.length === 0 && modifyUserInformationError("firstName", true)
-            userInformation.lastName.length === 0 && modifyUserInformationError("lastName", true)
-            userInformation.email.length === 0 && modifyUserInformationError("email", true)
+            userInformation.firstName.trim().length === 0 && modifyUserInformationError("firstName", true)
+            userInformation.lastName.trim().length === 0 && modifyUserInformationError("lastName", true)
+            userInformation.email.trim().length === 0 && modifyUserInformationError("email", true)
             userInformation.password.length === 0 && modifyUserInformationError("password", true)
             Alert.alert(
                 "Invalid Inputs", 
