@@ -3,9 +3,9 @@ import {
   KeyboardAvoidingView, 
   ScrollView, 
   Platform, 
-  SafeAreaView,
   StyleSheet
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function ScrollViewHelperWGradient({ children, gradientColors }) {
   
@@ -14,7 +14,7 @@ function ScrollViewHelperWGradient({ children, gradientColors }) {
         colors={gradientColors}
         style={styles.gradient}
     >
-        <SafeAreaView style={styles.container} >
+        <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
             <KeyboardAvoidingView
             style={styles.keyboardView}
             behavior={Platform.OS === "ios" ? "padding" : "height"}

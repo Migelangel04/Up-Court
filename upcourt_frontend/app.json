@@ -9,7 +9,13 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "plugins": [
+        [
+          "expo-splash-screen",
+          { "preventAutoHide": true }
+        ]
+      ]
     },
     "ios": {
       "supportsTablet": true

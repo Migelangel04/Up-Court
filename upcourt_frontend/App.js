@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import SignOnStack from "./navigation/SignOnStack";
 import MainTab from './navigation/MainTab';
@@ -15,30 +16,30 @@ import MainTab from './navigation/MainTab';
 */
 
 export default function App() {
- 
   const [loaded, error] = useFonts({
     "AfacadFlux-Regular": require('./assets/Afacad_Flux/static/AfacadFlux-Regular.ttf'),
     "AfacadFlux-Bold": require('./assets/Afacad_Flux/static/AfacadFlux-Bold.ttf'),
-  })
+  });
 
   useEffect(() => {
     if (loaded || error) {
       SplashScreen.hideAsync()
     }
-  }, [loaded, error])
+  }, [loaded, error]);
+
 
   if (!loaded && !error){
     return null
   }
-  let isAuth = true; // We replace with actual auth sequence code
+  let isAuth = false; // We replace with actual auth sequence code
 
   return (
-    <>
+    <SafeAreaProvider>
       <StatusBar style="light"/>
       <NavigationContainer>
         {isAuth ? <MainTab /> : <SignOnStack />}
       </NavigationContainer>
-    </>
+    </SafeAreaProvider>
   );
 }
 
